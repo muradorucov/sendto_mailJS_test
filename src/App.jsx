@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 function App() {
   const servKey = import.meta.env.VITE_SERVCE_KEY
   const tempKey = import.meta.env.VITE_TEMPLATE_KEY
@@ -15,18 +15,18 @@ function App() {
     btn.current.innerText = "Göndərilir....";
 
     console.log(servKey, tempKey, myPublicKey);
-    // emailjs.sendForm(servKey, tempKey, form.current, myPublicKey)
-    //   .then(() => {
-    //     setName("")
-    //     setSubject("")
-    //     setEmail("")
-    //     setMessage("")
-    //     btn.current.innerText = "Göndər"
-    //     alert("Uğurla göndərilidi!☺")
-    //   }).catch((err) => {
-    //     console.log(err);
-    //     alert("Göndərilmədi, ayrılan quota bitib!😓")
-    //   })
+    emailjs.sendForm(servKey, tempKey, form.current, myPublicKey)
+      .then(() => {
+        setName("")
+        setSubject("")
+        setEmail("")
+        setMessage("")
+        btn.current.innerText = "Göndər"
+        alert("Uğurla göndərilidi!☺")
+      }).catch((err) => {
+        console.log(err);
+        alert("Göndərilmədi, ayrılan quota bitib!😓")
+      })
 
   }
   return (
