@@ -13,8 +13,6 @@ function App() {
   const sendData = (e) => {
     e.preventDefault()
     btn.current.innerText = "Göndərilir....";
-
-    console.log(servKey, tempKey, myPublicKey);
     emailjs.sendForm(servKey, tempKey, form.current, myPublicKey)
       .then(() => {
         setName("")
