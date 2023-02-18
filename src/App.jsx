@@ -10,15 +10,7 @@ function App() {
 
   const sendData = (e) => {
     e.preventDefault()
-    btn.current.innerText = "Sending...."
-    console.log({
-      name: name,
-      subject: subject,
-      email: email,
-      message: message
-    });
-
-
+    btn.current.innerText = "Göndərilir...."
     emailjs.sendForm(
       "service_4q6u6oi",
       "template_hlp9kmv",
@@ -29,10 +21,11 @@ function App() {
       setSubject("")
       setEmail("")
       setMessage("")
-      btn.current.innerText = "Submit"
-      alert("Success")
+      btn.current.innerText = "Göndər"
+      alert("Uğurla göndərilidi!☺")
     }).catch((err) => {
       console.log(err);
+      alert("Göndərilmədi, ayrılan quota bitib!😓")
     })
 
   }
@@ -41,7 +34,7 @@ function App() {
       <div className="row">
         <div className="col-12">
           <div className="App">
-            <h2 className='pb-4'>Contact Form</h2>
+            <h2 className='pb-4'>Əlaqə forumu</h2>
             <form onSubmit={sendData} ref={form}>
               <div className="form-group">
                 <label htmlFor="sender_name">Ad və Soyad</label>
@@ -53,6 +46,7 @@ function App() {
                   placeholder="Ad və soyad daxil edin"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -65,6 +59,7 @@ function App() {
                   placeholder="Mövzu daxil edin"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -77,6 +72,7 @@ function App() {
                   placeholder="E-poçt daxil edin"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -89,6 +85,7 @@ function App() {
                   placeholder="Mətni daxil edin"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  required
                 />
               </div>
               <button
@@ -96,10 +93,9 @@ function App() {
                 className="btn btn-primary col-12"
                 ref={btn}
               >
-                Submit
+                Göndər
               </button>
             </form>
-
           </div>
         </div>
       </div>
