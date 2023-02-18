@@ -1,32 +1,31 @@
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 function App() {
+  const servKey = import.meta.env.VITE_SERVCE_KEY
+  const tempKey = import.meta.env.VITE_TEMPLATE_KEY
+  const myPublicKey = import.meta.env.VITE_MY_PUBLIC_KEY
   const form = useRef()
   const btn = useRef()
   const [name, setName] = useState("")
   const [subject, setSubject] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
-
   const sendData = (e) => {
     e.preventDefault()
-    btn.current.innerText = "Göndərilir...."
-    emailjs.sendForm(
-      "service_4q6u6oi",
-      "template_hlp9kmv",
-      form.current,
-      "K6b_xwRmllo-6stdW"
-    ).then(() => {
-      setName("")
-      setSubject("")
-      setEmail("")
-      setMessage("")
-      btn.current.innerText = "Göndər"
-      alert("Uğurla göndərilidi!☺")
-    }).catch((err) => {
-      console.log(err);
-      alert("Göndərilmədi, ayrılan quota bitib!😓")
-    })
+    btn.current.innerText = "Göndərilir....";
+
+    emailjs.sendForm(servKey, tempKey, form.current, myPublicKey)
+      .then(() => {
+        setName("")
+        setSubject("")
+        setEmail("")
+        setMessage("")
+        btn.current.innerText = "Göndər"
+        alert("Uğurla göndərilidi!☺")
+      }).catch((err) => {
+        console.log(err);
+        alert("Göndərilmədi, ayrılan quota bitib!😓")
+      })
 
   }
   return (
