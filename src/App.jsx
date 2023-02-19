@@ -61,7 +61,7 @@ function App() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="sender_email">E-poçt ünavı</label>
+                <label htmlFor="sender_email">E-poçt ünvanı</label>
                 <input
                   type="email"
                   className="form-control"
