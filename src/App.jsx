@@ -32,10 +32,10 @@ function App() {
       <div className="row">
         <div className="col-12">
           <div className="App">
-            <h2 className='pb-4'>Əlaqə forumu</h2>
+            <h2 className='pb-4'>Tapşırıq göndərmə forumu</h2>
             <form onSubmit={sendData} ref={form}>
               <div className="form-group">
-                <label htmlFor="sender_name">Ad və Soyad</label>
+                <label htmlFor="sender_name">Ad və Soyad (*)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -48,33 +48,33 @@ function App() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="subject">Mövzu</label>
+                <label htmlFor="subject">Tapşırığın adı və ya nömrəsi (*)</label>
                 <input
                   type="text"
                   className="form-control"
                   name='subject'
                   id="subject"
-                  placeholder="Mövzu daxil edin"
+                  placeholder="Tapşırığın adını və ya nörməsını daxil edin"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="sender_email">E-poçt ünvanı</label>
+                <label htmlFor="sender_email">Repozitory linki (*)</label>
                 <input
                   type="email"
                   className="form-control"
                   name='sender_email'
                   id="sender_email"
-                  placeholder="E-poçt daxil edin"
+                  placeholder="Repozitory linki daxil edin"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="message">Mətn</label>
+                <label htmlFor="message">Əlavə Şərh(</label>
                 <textarea
                   className="form-control"
                   id="message"
@@ -83,7 +83,6 @@ function App() {
                   placeholder="Mətni daxil edin"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  required
                 />
               </div>
               <button
