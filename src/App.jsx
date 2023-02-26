@@ -63,7 +63,7 @@ function App() {
               <div className="form-group">
                 <label htmlFor="sender_email">Repozitory linki (*)</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
                   name='sender_email'
                   id="sender_email"
