@@ -8,7 +8,7 @@ function App() {
   const btn = useRef()
   const [name, setName] = useState("")
   const [subject, setSubject] = useState("")
-  const [email, setEmail] = useState("")
+  const [repoLink, setRepoLink] = useState("")
   const [message, setMessage] = useState("")
   const sendData = (e) => {
     e.preventDefault()
@@ -18,7 +18,7 @@ function App() {
         setName("")
         setSubject("")
         setEmail("")
-        setMessage("")
+        setRepoLink("")
         btn.current.innerText = "Göndər"
         alert("Uğurla göndərilidi!☺")
       }).catch((err) => {
@@ -61,15 +61,15 @@ function App() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="sender_email">Repozitory linki (*)</label>
+                <label htmlFor="repo_link">Repozitory linki (*)</label>
                 <input
                   type="text"
                   className="form-control"
-                  name='sender_email'
-                  id="sender_email"
+                  name='repo_link'
+                  id="repo_link"
                   placeholder="Repozitory linki daxil edin"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={repoLink}
+                  onChange={(e) => setRepoLink(e.target.value)}
                   required
                 />
               </div>
