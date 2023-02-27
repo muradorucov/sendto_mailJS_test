@@ -17,8 +17,8 @@ function App() {
       .then(() => {
         setName("")
         setSubject("")
-        setEmail("")
         setRepoLink("")
+        setMessage("")
         btn.current.innerText = "Göndər"
         alert("Uğurla göndərilidi!☺")
       }).catch((err) => {
